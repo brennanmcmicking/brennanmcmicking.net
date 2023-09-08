@@ -1,7 +1,6 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { AppBar, Box, Button, IconButton, Toolbar } from "@mui/material";
+import { AppBar, Box, Button, Toolbar } from "@mui/material";
 import About from "./pages/About";
 import Photography from "./pages/Photography";
 import Projects from "./pages/Projects";
