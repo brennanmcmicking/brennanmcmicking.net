@@ -1,12 +1,5 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  CircularProgress,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Box, CircularProgress, Container, Typography } from "@mui/material";
+import RefreshIcon from "@mui/icons-material/Refresh";
 import Marquee from "react-fast-marquee";
 import { useEffect, useState } from "react";
 
@@ -51,23 +44,27 @@ const SpotifyWidget = (props: SpotifyWidgetProps) => {
     return "red";
   };
 
+  const refresh = () => {
+    setWidgetState("loading");
+    fetch("https://api.brennanmcmicking.net/v1/now-playing")
+      .then((response) => {
+        if (response.status === 204) {
+          setWidgetState("nothing");
+        } else if (response.status === 200) {
+          setWidgetState("success");
+          return response.json();
+        } else {
+          setWidgetState("error");
+        }
+      })
+      .then((data) => {
+        setData(data);
+      });
+  };
+
   useEffect(() => {
     if (widgetState === "uninitialized") {
-      setWidgetState("loading");
-      fetch("https://api.brennanmcmicking.net/v1/now-playing")
-        .then((response) => {
-          if (response.status === 204) {
-            setWidgetState("nothing");
-          } else if (response.status === 200) {
-            setWidgetState("success");
-            return response.json();
-          } else {
-            setWidgetState("error");
-          }
-        })
-        .then((data) => {
-          setData(data);
-        });
+      refresh();
     }
   }, []);
 
@@ -94,7 +91,7 @@ const SpotifyWidget = (props: SpotifyWidgetProps) => {
               className="album-image"
             />
           </Box>
-          <Box marginLeft={1} sx={{ overflow: "hidden" }}>
+          <Box marginLeft={1} sx={{ overflow: "hidden" }} flexGrow={1}>
             <Typography
               className="now-listening-song"
               // align="left"
@@ -120,15 +117,43 @@ const SpotifyWidget = (props: SpotifyWidgetProps) => {
               on {data.album_name}
             </Typography>
           </Box>
+          <Box
+            marginLeft={1}
+            marginRight={0}
+            flexDirection={"column"}
+            justifyContent={"center"}
+          >
+            <RefreshIcon
+              htmlColor="white"
+              cursor={"pointer"}
+              onClick={refresh}
+            />
+          </Box>
         </>
       )}
       {widgetState === "nothing" && (
-        <Typography>Not listening to anything</Typography>
+        <>
+          <Typography flexGrow={1}>Not listening to anything</Typography>
+          <Box
+            marginLeft={1}
+            marginRight={0}
+            flexDirection={"column"}
+            justifyContent={"center"}
+          >
+            <RefreshIcon
+              htmlColor="white"
+              cursor={"pointer"}
+              onClick={refresh}
+            />
+          </Box>
+        </>
       )}
       {widgetState === "error" && (
         <Typography>Internal server error</Typography>
       )}
-      {widgetState === "loading" && <CircularProgress />}
+      {widgetState === "loading" && (
+        <CircularProgress style={{ color: "white" }} />
+      )}
     </Box>
   );
 };

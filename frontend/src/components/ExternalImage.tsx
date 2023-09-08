@@ -22,7 +22,6 @@ const ExternalImage = (props: ExternalImageProps) => {
         alt={props.alt}
         className={props.className}
         onLoad={() => {
-          console.log("image loaded");
           setImageLoaded(true);
         }}
       />

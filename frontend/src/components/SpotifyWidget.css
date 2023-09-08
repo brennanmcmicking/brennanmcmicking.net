@@ -8,7 +8,8 @@
 
 .now-listening-song:hover {
   text-decoration: underline;
-  cursor: pointer;
+  /* cursor: pointer; */
+  cursor: default;
   /* margin-left: -100%;
   transition: 5s;
   z-index: 0;
@@ -18,13 +19,15 @@
 .now-listening-album:hover {
   color: white;
   text-decoration: underline;
-  cursor: pointer;
+  cursor: default;
+  /* cursor: pointer; */
 }
 
 .now-listening-artists:hover {
   color: white;
   text-decoration: underline;
-  cursor: pointer;
+  cursor: default;
+  /* cursor: pointer; */
 }
 
 .album-image {
