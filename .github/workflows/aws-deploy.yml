@@ -9,18 +9,18 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "18"
-      - name: CD to frontend
-        run: cd frontend
-      - name: Install dependencies
+      - name: Install frontend dependencies
         run: npm install
+        working-directory: frontend
       - name: Build frontend
         run: npm run build
-      - name: CD to CDK
-        run: cd ../cdk
+        working-directory: frontend
       - name: Install dependencies
         run: npm install
+        working-directory: cdk
       - name: Synth stack
         run: npx cdk synth
+        working-directory: cdk
       - name: Configure AWS creds
         uses: aws-actions/configure-aws-credentials@master
         with:
@@ -30,6 +30,8 @@ jobs:
       - name: Deploy dev stack
         if: github.ref == 'refs/heads/development'
         run: npx cdk deploy SiteStack-dev --require approval never
+        working-directory: cdk
       - name: Deploy prod stack
         if: github.ref == 'refs/heads/main'
         run: npx cdk deploy SiteStack-prod --require-approval never
+        working-directory: cdk
