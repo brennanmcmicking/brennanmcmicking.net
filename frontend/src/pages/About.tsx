@@ -1,5 +1,4 @@
-import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
-import Photograph from "../components/Photograph";
+import { Box, List, ListItemText, Typography } from "@mui/material";
 import Headshot from "../pictures/headshot.jpg";
 
 export interface AboutProps {}

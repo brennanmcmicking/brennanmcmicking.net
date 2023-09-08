@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Container, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import Marquee from "react-fast-marquee";
 import { useEffect, useState } from "react";
@@ -66,7 +66,7 @@ const SpotifyWidget = (props: SpotifyWidgetProps) => {
     if (widgetState === "uninitialized") {
       refresh();
     }
-  }, []);
+  });
 
   return (
     <Box
