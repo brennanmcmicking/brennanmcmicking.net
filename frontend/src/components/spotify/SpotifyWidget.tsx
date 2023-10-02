@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 import { useEffect, useState } from "react";
 
 import "./SpotifyWidget.css";
-import ExternalImage from "./ExternalImage";
+import ExternalImage from "../ExternalImage";
 
 export interface SpotifyWidgetProps {}
 
