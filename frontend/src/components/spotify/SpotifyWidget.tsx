@@ -46,7 +46,7 @@ const SpotifyWidget = (props: SpotifyWidgetProps) => {
 
   const refresh = () => {
     setWidgetState("loading");
-    fetch("https://api.brennanmcmicking.net/v1/now-playing")
+    fetch("https://api.brennanmcmicking.net/v1/spotify/now-playing")
       .then((response) => {
         if (response.status === 204) {
           setWidgetState("nothing");
