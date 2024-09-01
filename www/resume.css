@@ -3,6 +3,11 @@ p {
   pointer-events: all;
 }
 
+#disclaimer {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 #content-container {
   width: 80%;
   height: 100%;
@@ -17,6 +22,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-grow: 0;
 }
 
 #resume-image {

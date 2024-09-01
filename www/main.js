@@ -31,7 +31,7 @@ scene.add(light);
 camera.position.z = 5;
 
 const renderer = new THREE.WebGLRenderer();
-console.log(rendererParent.clientWidth);
+// console.log(rendererParent.clientWidth);
 renderer.setSize(screenSize, screenSize);
 // renderer.shadowMap.enabled = true;
 
@@ -112,18 +112,28 @@ document.onwheel = (e) => {
   rotVel += e.deltaY / 10000;
 };
 
-document.body.onmousedown = (e) => {
+function clickStart() {
   clicked = true;
-};
-document.body.onmouseup = (e) => {
+}
+
+function clickEnd() {
   clicked = false;
-};
-document.body.onmouseleave = (e) => {
-  clicked = false;
-};
-document.body.onmousemove = (e) => {
+}
+
+function onDrag(e) {
   if (clicked) {
+    console.log(e.movementX);
+    console.log(e.movementY);
+    console.log(e);
     rotVelX += e.movementY / 1000;
     rotVelY += e.movementX / 1000;
   }
-};
+}
+
+document.body.onpointerdown = clickStart;
+document.body.onpointerup = clickEnd;
+// document.body.onpointercancel = clickEnd;
+// document.body.onpointerleave = clickEnd;
+// document.body.onmouseleave = clickEnd;
+document.body.onpointermove = onDrag;
+// document.body.onmousemove = onDrag;
