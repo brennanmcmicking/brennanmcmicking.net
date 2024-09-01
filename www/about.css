@@ -1,0 +1,48 @@
+p {
+  cursor: text;
+  pointer-events: all;
+}
+
+#content-container {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#text-container {
+  width: 70%;
+  height: 100%;
+  color: white;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+#canvas-container {
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  #text-container {
+    font-size: 32px;
+    /* padding: 10px; */
+    padding-left: 0;
+    padding-right: 0;
+    width: 90%;
+  }
+
+  #canvas-container {
+    width: 100%;
+  }
+}

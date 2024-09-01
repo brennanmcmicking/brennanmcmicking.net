@@ -1,0 +1,68 @@
+body {
+  height: 100vh;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+}
+
+canvas {
+  cursor: pointer;
+}
+
+#header-container {
+  background-color: black;
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  pointer-events: none;
+}
+
+#name-link {
+  text-decoration: none;
+}
+
+#name {
+  pointer-events: all;
+  cursor: pointer;
+  color: white;
+}
+
+#nav-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-link {
+  color: white;
+  pointer-events: all;
+}
+
+#frame-count {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: small;
+  color: slategray;
+  font-family: monospace;
+  padding: 5px;
+}
+
+@media only screen and (max-width: 1024px) {
+  #name {
+    font-size: 72px;
+  }
+
+  #nav-bar {
+    gap: 50px;
+  }
+
+  .nav-link {
+    font-size: 32px;
+  }
+}
