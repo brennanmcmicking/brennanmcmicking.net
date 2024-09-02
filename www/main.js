@@ -16,7 +16,7 @@ let rotVelZ = 0;
 let clicked = false;
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+const material = new THREE.MeshStandardNodeMaterial({ color: 0x00ff00 });
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
@@ -30,7 +30,7 @@ scene.add(light);
 
 camera.position.z = 5;
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGPURenderer();
 // console.log(rendererParent.clientWidth);
 renderer.setSize(screenSize, screenSize);
 // renderer.shadowMap.enabled = true;
