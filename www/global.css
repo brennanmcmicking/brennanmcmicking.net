@@ -47,7 +47,7 @@ p {
   gap: 10px;
 }
 
-.nav-link {
+a {
   color: white;
   pointer-events: all;
 }
