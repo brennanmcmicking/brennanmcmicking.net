@@ -6,15 +6,13 @@ on:
       - main
 jobs:
   deploy:
+    name: Deploy site to host
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
-        runs-on: ubuntu-latest
-        steps:
-          - name: Execute remote SSH commands using password
-            uses: appleboy/ssh-action@v1
-            with:
-              host: ${{ secrets.SSH_HOST }}
-              username: ${{ secrets.SSH_USER }}
-              key: ${{ secrets.SSH_KEY }}
-              script: /home/${{ secrets.SSH_USER }}/site/deploy.sh
+      - name: Execute remote SSH commands using password
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: /home/${{ secrets.SSH_USER }}/site/deploy.sh
