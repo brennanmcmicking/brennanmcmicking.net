@@ -1,4 +1,4 @@
-name: AWS CDK deployment
+name: Site deployment
 on:
   workflow_dispatch:
   push:
