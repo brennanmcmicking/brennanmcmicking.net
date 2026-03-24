@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <filter id="svgThreshold">
+    <feComponentTransfer>
+        <feFuncG class="transfer-func" type="discrete" tableValues="0 1 1" />
+        <feFuncB class="transfer-func" type="discrete" tableValues="0 1 1" />
+        <feFuncA class="transfer-func" type="discrete" tableValues="0 1 1" />
+        <feFuncR class="transfer-func" type="discrete" tableValues="0 1 1" />
+    </feComponentTransfer>
+    </filter>
+</svg>
